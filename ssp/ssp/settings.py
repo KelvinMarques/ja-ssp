@@ -26,6 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
   # set casting, default value
   DEBUG=(bool, False)
+
 )
 environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
@@ -89,8 +90,8 @@ DATABASES = {
         'NAME': env("NAME_DB"),
         'USER': env("USER_DB"),
         'PASSWORD': env("PASSWORD_DB"),
-        'HOST': env("HOST_DB"),
-        'PORT': env("PORT_DB"),  # 5432 by default
+        'HOST': env("HOST_DB", default='localhost'),
+        'PORT': env("PORT_DB", default=5432),  # 5432 by default
     }
 }
 
