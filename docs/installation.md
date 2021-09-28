@@ -6,7 +6,7 @@
     * django-environ
     * psycopg2 ( https://www.psycopg.org/ )
     * pipenv
-
+    * gevent
 ## Steps
 1-create folder
 
@@ -27,7 +27,7 @@
 follow instructions in .env.example and insert datas in .env created
 
 Defaults datas
-* HOST_DB = localhosts
+* HOST_DB = localhost
 * PORT_DB = 5432
 
 - in case of doubt, consult this site: https://django-environ.readthedocs.io/en/latest/
