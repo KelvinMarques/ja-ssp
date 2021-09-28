@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 django-environ = "*"
 psycopg2 = "*"
+celery = "*"
+django-celery-results = "*"
+gevent = "*"
 
 [dev-packages]
 
