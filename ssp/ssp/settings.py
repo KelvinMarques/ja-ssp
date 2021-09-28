@@ -29,14 +29,10 @@ env = environ.Env(
 )
 environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
-
-
 SECRET_KEY = env('SECRET_KEY') 
 DEBUG = env("DEBUG")
 
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -47,6 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',#About. This extension enables you to store Celery task results using the Django ORM... <<<ORM One of the most powerful features of Django is its Object-Relational Mapper (ORM), which enables you to interact with your database, like you would with SQL.>>>
+                            #...It defines a single model ( django_celery_results. models. TaskResult ) used to store task results...
+                            #...and you can query this database table like any other Django model...
+    'demoapp',
 ]
 
 MIDDLEWARE = [
@@ -89,8 +89,8 @@ DATABASES = {
         'NAME': env("NAME_DB"),
         'USER': env("USER_DB"),
         'PASSWORD': env("PASSWORD_DB"),
-        'HOST': env("HOST_DB", defoult="localhost"),
-        'PORT': env("PORT", defoult=5432)
+        'HOST': "127.0.0.1",  #env("HOST_DB", default = "127.0.0.1"),
+        'PORT': env("PORT", default = 5432)
     }
 }
 
@@ -139,5 +139,16 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# CELERY_CONFIGURATIONS
+# Celery Configuration Options
+CELERY_TIMEZONE = "Australia/Tasmania"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
 
+CELERY_RESULT_BACKEND = 'django-db'
 
+BROKER_URL = 'amqp://guest:**@127.0.0.1:5672//:'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
