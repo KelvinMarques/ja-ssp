@@ -9,7 +9,10 @@ django-environ = "*"
 psycopg2 = "*"
 celery = "*"
 django-celery-results = "*"
+<<<<<<< HEAD
 rabbitmq = "*"
+=======
+>>>>>>> 9fad5e27bfe5641a5ceff849b900085d3c062a6a
 gevent = "*"
 
 [dev-packages]
