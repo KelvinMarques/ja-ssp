@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_results',
     'demoapp',
+    'social_scrapper.apps.SocialScrapperConfig',
 ]
 
 MIDDLEWARE = [
