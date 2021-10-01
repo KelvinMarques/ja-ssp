@@ -11,9 +11,7 @@ psycopg2 = "*"
 celery = "*"
 django-celery-results = "*"
 rabbitmq = "*"
-=======
 gevent = "*"
-=======
 gunicorn = "==20.1.0"
 
 [dev-packages]
