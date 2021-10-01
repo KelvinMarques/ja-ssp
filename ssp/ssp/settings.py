@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_results',
-    'demoapp',
     'social_scrapper.apps.SocialScrapperConfig',
 ]
 
