@@ -149,7 +149,7 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 
 CELERY_RESULT_BACKEND = 'django-db'
 
-BROKER_URL = 'amqp://guest:**@127.0.0.1:5672//:'
+CELERY_BROKER_URL = env('CLOUDAMQP_URL')
 # CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
