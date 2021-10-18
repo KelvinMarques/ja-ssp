@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from social_scrapper import views
+from social_scrapper.views import HelloWolrd
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', HelloWolrd, name='content'),
 ]
